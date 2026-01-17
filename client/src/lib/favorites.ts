@@ -1,4 +1,4 @@
-const FAVORITES_KEY = 'pageturner_favorites';
+const FAVORITES_KEY = 'visuabooks_favorites';
 
 export function getFavorites(): string[] {
   if (typeof window === 'undefined') return [];

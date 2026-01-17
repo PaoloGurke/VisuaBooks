@@ -8,6 +8,7 @@ import { useFavorites } from '@/contexts/FavoritesContext';
 export function Header() {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const { favorites } = useFavorites();
 
@@ -31,7 +32,7 @@ export function Header() {
             <div className="p-2 bg-primary rounded-lg group-hover:scale-105 transition-transform">
               <BookOpen className="w-5 h-5 text-primary-foreground" />
             </div>
-            <span className="font-serif text-xl font-semibold hidden sm:block">PageTurner</span>
+            <span className="font-serif text-xl font-semibold hidden sm:block">VisuaBooks</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">
@@ -74,6 +75,30 @@ export function Header() {
             >
               {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
             </Button>
+
+{loggedIn ? (
+  <Button
+    variant="outline"
+    size="sm"
+    onClick={() => setLoggedIn(false)}
+  >
+    Logout
+  </Button>
+) : (
+  <>
+    <Link href="/login">
+      <Button variant="ghost" size="sm">
+        Login
+      </Button>
+    </Link>
+    <Link href="/signup">
+      <Button variant="secondary" size="sm">
+        Signup
+      </Button>
+    </Link>
+  </>
+)}
+
 
             <Button
               variant="ghost"

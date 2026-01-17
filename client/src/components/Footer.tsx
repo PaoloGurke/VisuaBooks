@@ -28,7 +28,7 @@ export function Footer() {
               <div className="p-2 bg-primary rounded-lg">
                 <BookOpen className="w-5 h-5 text-primary-foreground" />
               </div>
-              <span className="font-serif text-xl font-semibold">PageTurner</span>
+              <span className="font-serif text-xl font-semibold">VisuaBooks</span>
             </Link>
             <p className="text-muted-foreground text-sm mb-6">
               Your digital gateway to endless reading. Discover, explore, and read books instantly online.
@@ -97,7 +97,7 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-sm">
-            2024 PageTurner. All rights reserved.
+            2024 VisuaBooks. All rights reserved.
           </p>
           <p className="text-muted-foreground text-sm">
             Digital books only. No physical delivery.

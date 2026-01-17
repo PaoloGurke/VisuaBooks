@@ -11,7 +11,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 function getInitialTheme(): Theme {
   if (typeof window === 'undefined') return 'light';
-  const stored = localStorage.getItem('pageturner_theme') as Theme;
+  const stored = localStorage.getItem('visuabooks_theme') as Theme;
   if (stored === 'light' || stored === 'dark') return stored;
   if (window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
   return 'light';
@@ -34,7 +34,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     } else {
       root.classList.remove('dark');
     }
-    localStorage.setItem('pageturner_theme', theme);
+    localStorage.setItem('visuabooks_theme', theme);
   }, [theme, mounted]);
 
   const toggleTheme = () => {

@@ -65,7 +65,7 @@ export default function About() {
           </div>
           
           <h1 className="font-serif text-4xl md:text-5xl font-bold mb-6" data-testid="text-about-title">
-            Welcome to PageTurner
+            Welcome to VisuaBooks
           </h1>
           
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -79,7 +79,7 @@ export default function About() {
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="font-serif text-3xl font-semibold mb-4">
-              Why Choose PageTurner?
+              Why Choose VisuaBooks?
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
               Experience the future of reading with our modern, user-friendly platform
@@ -110,7 +110,7 @@ export default function About() {
                 Our Mission
               </h2>
               <p className="text-muted-foreground mb-4">
-                At PageTurner, we're passionate about making reading more accessible and enjoyable 
+                At VisuaBooks, we're passionate about making reading more accessible and enjoyable 
                 for everyone. We believe that great literature should be just a click away, 
                 without the barriers of physical shipping or complex download processes.
               </p>
@@ -211,8 +211,8 @@ export default function About() {
 
           <p className="text-center text-sm text-muted-foreground mt-6">
             You can also reach us at{' '}
-            <a href="mailto:hello@pageturner.com" className="text-primary hover:underline">
-              hello@pageturner.com
+            <a href="mailto:read@visuabooks.com" className="text-primary hover:underline">
+              read@visuabooks.com
             </a>
           </p>
         </div>

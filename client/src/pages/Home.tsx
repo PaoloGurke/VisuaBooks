@@ -227,7 +227,7 @@ export default function Home() {
             Start Your Reading Journey Today
           </h2>
           <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-            Join thousands of readers who have discovered their favorite books on PageTurner. 
+            Join thousands of readers who have discovered their favorite books on VisuaBooks. 
             All digital, all instant, all in your browser.
           </p>
           <Link href="/catalog">
