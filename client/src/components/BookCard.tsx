@@ -1,5 +1,5 @@
 import { Link } from 'wouter';
-import { Heart, Star } from 'lucide-react';
+import { Heart, Star, Lock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useFavorites } from '@/contexts/FavoritesContext';
@@ -7,9 +7,11 @@ import type { Book } from '@shared/schema';
 
 interface BookCardProps {
   book: Book;
+  locked?: boolean;
+  price?: number;
 }
 
-export function BookCard({ book }: BookCardProps) {
+export function BookCard({ book, locked, price }: BookCardProps) {
   const { isFavorite, toggleFavorite } = useFavorites();
   const favorited = isFavorite(book.id);
 
@@ -22,8 +24,9 @@ export function BookCard({ book }: BookCardProps) {
   return (
     <Link href={`/book/${book.id}`}>
       <article 
-        className="group relative bg-card rounded-lg overflow-visible transition-all duration-300 hover:scale-[1.02] cursor-pointer"
-        data-testid={`card-book-${book.id}`}
+        className={`group relative rounded-lg overflow-hidden transition-all duration-300 cursor-pointer ${
+          locked && price ? 'filter blur-sm pointer-events-none' : ''
+        }`}
       >
         <div className="relative aspect-[2/3] rounded-lg overflow-hidden bg-muted">
           <img
@@ -32,8 +35,12 @@ export function BookCard({ book }: BookCardProps) {
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          
+          {locked && price && (
+            <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+              <Lock className="w-8 h-8 text-white" />
+            </div>
+          )}
+
           <Button
             variant="ghost"
             size="icon"
@@ -42,7 +49,6 @@ export function BookCard({ book }: BookCardProps) {
             } hover:scale-110`}
             style={{ visibility: favorited ? 'visible' : undefined }}
             onClick={handleFavoriteClick}
-            data-testid={`button-favorite-${book.id}`}
           >
             <Heart className={`w-4 h-4 ${favorited ? 'fill-current' : ''}`} />
           </Button>
@@ -53,10 +59,10 @@ export function BookCard({ book }: BookCardProps) {
         </div>
 
         <div className="p-3">
-          <h3 className="font-serif font-medium text-sm line-clamp-1 mb-1 group-hover:text-primary transition-colors" data-testid={`text-book-title-${book.id}`}>
+          <h3 className="font-serif font-medium text-sm line-clamp-1 mb-1 group-hover:text-primary transition-colors">
             {book.title}
           </h3>
-          <p className="text-muted-foreground text-xs mb-2 line-clamp-1" data-testid={`text-book-author-${book.id}`}>
+          <p className="text-muted-foreground text-xs mb-2 line-clamp-1">
             {book.author}
           </p>
           <div className="flex items-center justify-between gap-2">
